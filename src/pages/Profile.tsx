@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Home: React.FC<Props> = ({
+const Profile: React.FC<Props> = ({
 one}) => {
     console.log('home...');
     return (
@@ -14,4 +14,4 @@ export type Props = {
   one: string;
 };
 
-export default Home;
+export default Profile;

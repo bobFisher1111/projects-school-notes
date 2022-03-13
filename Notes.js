@@ -1,6 +1,8 @@
 /*
     - JavaScript Notea:
         - Libraries:
+            - Typscript if need to add to project:
+                - npm install --save typescript @types/node @types/react @types/react-dom @types/jest
             - React Router: v6
                 - npm i react-router-dom
             - Material-UI
@@ -10,6 +12,8 @@
                     - npm install @mui/material @emotion/react @emotion/styled
             - Material-UI Icons:
                 - npm install @mui/icons-material
+            - Material Styles:
+                - npm install @mui/styles
 
         - Step 1: Setup a React website for note taking
             - Setup React-Router // finished with set up

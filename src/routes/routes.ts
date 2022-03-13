@@ -6,6 +6,8 @@ import Dashboard from '../pages/Dashboard';
 import Profile from '../pages/Profile';
 import Contact from '../pages/Contact';
 import Logout from '../pages/Logout';
+import JavaScriptTutorial from '../components/javaScriptTutorials/JavaScriptTutorial';
+import DataTutorial from '../components/dataTutorials/DataTutorials';
 
 type Route = {
   path?: string;
@@ -26,6 +28,10 @@ const routes: Route[] = [
     element: Tutorials,
   },
   {
+    path: '/javascripttutorial',
+    element: JavaScriptTutorial,
+  },
+  {
     path: '/dashboard',
     element: Dashboard,
   },
@@ -40,6 +46,11 @@ const routes: Route[] = [
   {
     path: '/logout',
     element: Logout,
+  },
+  // 
+  {
+    path: '/datatutorials',
+    element: DataTutorial,
   },
 ];
 
