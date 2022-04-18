@@ -16,23 +16,23 @@ const useStyles = makeStyles(() => createStyles({
       userSelect: 'none', 
     },
     rightArrow: {
-      position: 'absolute',
+      position: 'absolute', // absolute
       top: '50%',
-      right: '32px',
+      right: '32px',  // 32px
       fontSize: '3rem',
       color: '#000',
-      zIndex: '10',
+      zIndex: '10', // 10
       cursor: 'pointer',
       userSelect: 'none', 
     },
     image: {
-      width: '1000px',
-      height: '600px',
+      width: '500px', // 1000px
+      height: '300px', // 600px
       borderRadius: '10px',
     },
     slider: {
       position: 'relative',
-      height: '100vh',
+      height: '50vh', // 100vh
       display: 'flex',
       justifyContent:'center',
       alignItems: 'center',

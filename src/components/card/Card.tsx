@@ -24,6 +24,8 @@ const CardComponent: React.FC<Props> = ({
     routerLink,
 }) => {
   const classes = useStyles();
+
+  // <Card sx={{ maxWidth: 345 }}>
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia

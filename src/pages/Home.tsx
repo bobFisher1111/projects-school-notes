@@ -11,11 +11,16 @@ import slideShow_data from '../data/slideShow_data.json';
 */
 const useStyles = makeStyles(() => createStyles({
   root: {
-    // 
+    backgroundColor: 'lightgray',
+    paddingBottom: '250px',
   },
   linkStyle: {
     textDecoration: 'none',
-  }
+  },
+  slides: {
+    // width: '480px',
+    // height: '400px',
+  },
 }));
 
 let data = project_list;
@@ -26,8 +31,8 @@ const Home: React.FC<Props> = ({
   const classes = useStyles();
 
   return (
-    <>
-      <div>
+    <div className={classes.root}>
+       <div className={classes.slides}>
         <SlideShow slidesData={slideShow_data} />
       </div>
       <Grid
@@ -52,7 +57,7 @@ const Home: React.FC<Props> = ({
         })
       }
       </Grid>
-    </>
+    </div>
   );
 }
 
