@@ -8,12 +8,9 @@ import { Link } from 'react-router-dom';
 import { makeStyles, createStyles } from '@mui/styles';
 
 const useStyles = makeStyles(() => createStyles({
-  root: {
-  // 
-  },
   linkStyle: {
     textDecoration: 'none',
-  }
+  },
 }));
 
 const CardComponent: React.FC<Props> = ({
@@ -25,9 +22,8 @@ const CardComponent: React.FC<Props> = ({
 }) => {
   const classes = useStyles();
 
-  // <Card sx={{ maxWidth: 345 }}>
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345, border: '1px solid #506f49'}}>
       <CardMedia
         component="img"
         height="140"

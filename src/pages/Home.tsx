@@ -11,7 +11,7 @@ import slideShow_data from '../data/slideShow_data.json';
 */
 const useStyles = makeStyles(() => createStyles({
   root: {
-    backgroundColor: 'lightgray',
+    // backgroundColor: 'white', // lightgray, #688861
     paddingBottom: '250px',
   },
   linkStyle: {
@@ -19,8 +19,13 @@ const useStyles = makeStyles(() => createStyles({
   },
   slides: {
     // width: '480px',
-    // height: '400px',
+    // height: '1099px', // 650px
+    padding: '50px 100px',
+    // height: '10%',
   },
+  spaces: {
+    padding: '0px 10px',
+  }
 }));
 
 let data = project_list;
@@ -29,30 +34,39 @@ const Home: React.FC<Props> = ({
   one,
 }) => {
   const classes = useStyles();
-
+  // justifyContent="space-evenly"
   return (
     <div className={classes.root}>
-       <div className={classes.slides}>
+       <Grid
+        container
+        direction="row"
+        justifyContent="center"
+        alignItems="center"
+        item xs={12}
+        className={classes.slides}
+      >
         <SlideShow slidesData={slideShow_data} />
-      </div>
+      </Grid>
       <Grid
         container
         direction="row"
-        justifyContent="space-evenly"
+        justifyContent="center"
         alignItems="center"
         item xs={12}
       >
         {
           data.project_list.map((x: any, index) => {
             return (
-              <CardComponent
-                key={index}
-                title={x.title}
-                imageLink={x.imageLink}
-                projectInfo={x.projectInfo}
-                linkTitle={x.linkTitle}
-                routerLink={x.routerLink}
-              />
+              <div className={classes.spaces}>
+                <CardComponent
+                  key={index}
+                  title={x.title}
+                  imageLink={x.imageLink}
+                  projectInfo={x.projectInfo}
+                  linkTitle={x.linkTitle}
+                  routerLink={x.routerLink}
+                />
+              </div>
             )
         })
       }

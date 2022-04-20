@@ -16,7 +16,7 @@ const useStyles = makeStyles(() => createStyles({
  logo: {
     textDecoration: "none",
     flexGrow: "1",
-    color: "white",
+    color: "#506f49",
     cursor: "pointer",
     "&:hover": {
         color: "black",
@@ -24,7 +24,7 @@ const useStyles = makeStyles(() => createStyles({
   },
   link: {
     textDecoration: "none",
-    color: "white",
+    color: "#506f49",
     fontSize: "20px",
     marginLeft: '20px',
     "&:hover": {
@@ -36,9 +36,9 @@ const useStyles = makeStyles(() => createStyles({
 const Header: React.FC<Props> = ({
 one}) => {
     const classes = useStyles();
-  
+
     return (
-      <AppBar position="static" style={{backgroundColor: "#506f49"}}>
+      <AppBar position="static" style={{backgroundColor: "white",  border: '1px solid #506f49', boxShadow: 'none'}}>
         <Toolbar>
           <Link to="/" className={classes.logo}>
             <Typography variant="h4">

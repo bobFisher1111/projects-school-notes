@@ -1,38 +1,18 @@
 import React, { useState } from 'react';
 import { makeStyles, createStyles } from '@mui/styles';
+import Grid from '@mui/material/Grid';
+import SlideShowTextColumn from './SlideShowTextColumn';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 // import slide_show_images from '../../data/slideShow_data.json'
 
 const useStyles = makeStyles(() => createStyles({
-    leftArrow: {
-      position: 'absolute',
-      top: '50%',
-      left: '32px',
-      fontSize: 'large',
-      color: '#000',
-      zIndex: '10',
-      cursor: 'pointer',
-      userSelect: 'none', 
-    },
-    rightArrow: {
-      position: 'absolute', // absolute
-      top: '50%',
-      right: '32px',  // 32px
-      fontSize: '3rem',
-      color: '#000',
-      zIndex: '10', // 10
-      cursor: 'pointer',
-      userSelect: 'none', 
-    },
     image: {
-      width: '500px', // 1000px
-      height: '300px', // 600px
-      borderRadius: '10px',
+      width: '100%',
+      height: '100%',
     },
     slider: {
       position: 'relative',
-      height: '50vh', // 100vh
       display: 'flex',
       justifyContent:'center',
       alignItems: 'center',
@@ -46,6 +26,13 @@ const useStyles = makeStyles(() => createStyles({
       transitionDuration: '1s',
       transform: 'scale(1.08)',
     },
+    borderWall: {
+      border: '1px solid #506f49',
+    },
+    description: {
+      wordWrap: 'break-word', 
+      paddingLeft: '20px',
+    },
   }));
 
 const SlideShow: React.FC<Props> = ({
@@ -54,45 +41,43 @@ const SlideShow: React.FC<Props> = ({
     const classes = useStyles();
     const [currentIndexValue, setCurrentIndexValue] = useState<any>(0);
     const length = slidesData.slide_show_images.length;
-    const nextSlide = () => {
-      // this will start with first image and then go all way to end and start over with first image(0)
-      setCurrentIndexValue(currentIndexValue === length - 1 ? 0 : currentIndexValue + 1);
-    }
-    const prevSlide = () => {
-      // this will go back to prev image, to negative pictures
-      setCurrentIndexValue(currentIndexValue === 0 ? length -1 : currentIndexValue - 1);
-    }
-    if(!Array.isArray(slidesData.slide_show_images) || length <= 0) {
-      return null;
-    }
+
+    // Automatic Slideshow:
+    let slideIndex = 0;
+    
     return (
-        <section className={classes.slider}>
-          <NavigateBeforeIcon
-            className={classes.leftArrow}
-            onClick={prevSlide}
-            
-          />
-          <NavigateNextIcon
-            className={classes.rightArrow}
-            onClick={nextSlide}
-          />
-          {slidesData.slide_show_images.map((slide: any, index: string) => {
+      <>
+        {slidesData.slide_show_images.map((slide: any, index: string) => {
             return (
-              <div
-                className={index === currentIndexValue ? classes.slideActive : classes.slide}
-                key={index}
-              >
+              <div className={(classes.slider)}>
                 {index === currentIndexValue && (
-                  <img 
-                    src={slide.imageLink}
-                    alt={slide.title}
-                    className={classes.image}
-                  />
-                )}
+                  <Grid 
+                    container
+                    item xs={12} 
+                    className={classes.borderWall}  
+                  >
+                    <Grid
+                      item xs={8}
+                      key={index}
+                    > 
+                      <img 
+                        src={slide.imageLink}
+                        alt={slide.title}
+                        className={classes.image}
+                      />
+                  </Grid>
+                  <Grid
+                    item xs={4}
+                    className={classes.description}
+                  >
+                    <SlideShowTextColumn slidesData="" />
+                  </Grid>
+                  </Grid>
+                  )}
               </div>
             )
           })}
-        </section>
+        </>
     );
 }
 
